@@ -4,7 +4,7 @@
   "description": "",
   "main": "asyncCall.js",
   "scripts": {
-    "test": "node asyncCall.js"
+    "start": "node asyncCall.js"
   },
   "author": "Maxime Lemieux",
   "license": "ISC",
