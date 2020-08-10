@@ -1,0 +1,15 @@
+{
+  "name": "quiplash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "asyncCall.js",
+  "scripts": {
+    "test": "node asyncCall.js"
+  },
+  "author": "Maxime Lemieux",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.3.0"
+  }
+}
