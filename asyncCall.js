@@ -3,6 +3,33 @@ const express = require('express')
 const app = express();
 app.use(express.json())
 
+
+// use the express-static middleware
+app.use(express.static("public"))
+
+// define the first route
+app.get("/", function (req, res) {
+  res.send(`
+  <h1>test1</h1>
+  <h2 id="currentQuestion"></h2>
+  <script>
+      getQuestions() ;
+      async function getQuestions() {
+          try {
+              const currentQuestionH2 = document.getElementById("currentQuestion");
+              const questions = await fetch('http://localhost:5000/questions', {method: "GET"}).then(a => a.json());
+              currentQuestionH2.innerText = questions[0].question;   
+          } catch(ex) {
+              console.log("Error");
+          }
+      }
+  </script>`)
+})
+
+// start the server listening for requests
+app.listen(process.env.PORT || 3000, 
+	() => console.log("Server is running..."));
+
 app.get("/", (req, res) => res.sendFile(`https://quiplash.herokuapp.com/index.html`))
 app.get("/questions", async (req,res) => {
   const rows = await execute()
@@ -26,7 +53,6 @@ app.post("/questions", async (req,res) => {
     res.send(JSON.stringify(result))
   }
 })
-app.listen(5000, () => console.log('Serveur en marche'))
 
 //execute()
 
