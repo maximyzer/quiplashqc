@@ -17,7 +17,7 @@ app.get("/", function (req, res) {
       async function getQuestions() {
           try {
               const currentQuestionH2 = document.getElementById("currentQuestion");
-              const questions = await fetch('http://localhost:5000/questions', {method: "GET"}).then(a => a.json());
+              const questions = await fetch('https://quiplash.herokuapp.com/questions', {method: "GET"}).then(a => a.json());
               currentQuestionH2.innerText = questions[0].question;   
           } catch(ex) {
               console.log("Error");
