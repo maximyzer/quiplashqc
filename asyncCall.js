@@ -3,7 +3,7 @@ const express = require('express')
 const app = express();
 app.use(express.json())
 
-app.get("/", (req, res) => res.sendFile(`${__dirname}/index.html`))
+app.get("/", (req, res) => res.sendFile(`https://quiplash.herokuapp.com/index.html`))
 app.get("/questions", async (req,res) => {
   const rows = await execute()
   res.setHeader("content-type","application/json")
