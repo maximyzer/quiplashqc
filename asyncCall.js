@@ -26,7 +26,7 @@ app.post("/questions", async (req,res) => {
     res.send(JSON.stringify(result))
   }
 })
-app.listen(8080, () => console.log('Serveur en marche'))
+app.listen(5000, () => console.log('Serveur en marche'))
 
 //execute()
 
